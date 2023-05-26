@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: monika
+spec:
+  selector:
+    matchLabels:
+      app: monika
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: monika
+    spec:
+      containers:
+        - name: monika
+          image: calculator:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
